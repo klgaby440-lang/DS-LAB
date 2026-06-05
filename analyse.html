@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analyse | DS-LAB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Courier New", Courier, monospace; /* Style Terminal/Code */
+        }
+
+        body {
+            background-color: #050a15;
+            color: #ffffff;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre latérale (Sidebar) */
+        .sidebar {
+            width: 250px;
+            background-color: #0b132b;
+            padding: 30px 20px;
+            border-right: 2px solid #00f3ff;
+            box-shadow: 2px 0 15px rgba(0, 243, 255, 0.2);
+        }
+
+        .sidebar h2 {
+            color: #00f3ff;
+            text-shadow: 0 0 10px #00f3ff;
+            margin-bottom: 40px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .sidebar ul li:hover {
+            color: #b026ff;
+            text-shadow: 0 0 10px #b026ff;
+        }
+
+        /* Contenu principal */
+        .dashboard {
+            flex-grow: 1;
+            padding: 40px;
+        }
+
+        .dashboard-header {
+            margin-bottom: 40px;
+        }
+
+        .dashboard-header h1 {
+            color: #b026ff;
+            text-shadow: 0 0 15px #b026ff;
+            font-size: 2.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* L'effet Néon */
+        .neon-box {
+            background-color: #111a30;
+            border: 1px solid #00f3ff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.1);
+            text-align: center;
+        }
+
+        .neon-box:nth-child(2) {
+            border-color: #b026ff;
+            box-shadow: 0 0 10px rgba(176, 38, 255, 0.4), inset 0 0 10px rgba(176, 38, 255, 0.1);
+        }
+
+        .neon-box h3 {
+            font-size: 1.2rem;
+            color: #8da2c0;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .neon-box .data {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00f3ff;
+            text-shadow: 0 0 10px #00f3ff;
+        }
+
+        .neon-box:nth-child(2) .data {
+            color: #b026ff;
+            text-shadow: 0 0 10px #b026ff;
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>DS-LAB // SYS</h2>
+        <ul>
+            <li>> Vue d'ensemble</li>
+            <li>> Flux de Données</li>
+            <li>> Synapses Actives</li>
+            <li>> Sécurité Serveur</li>
+        </ul>
+    </aside>
+
+    <main class="dashboard">
+        <div class="dashboard-header">
+            <h1>MONITORING SYSTÈME</h1>
+            <p>Analyse des performances en temps réel.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="neon-box">
+                <h3>Utilisateurs Llink</h3>
+                <div class="data">1,024</div>
+            </div>
+            
+            <div class="neon-box">
+                <h3>Vitesse de traitement</h3>
+                <div class="data">12ms</div>
+            </div>
+
+            <div class="neon-box">
+                <h3>Requêtes API</h3>
+                <div class="data">99.9%</div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
