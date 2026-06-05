@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services | CRYPT</title>
+    <style>
+        /* Réinitialisation de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        /* Le fond coloré en dégradé */
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            color: white;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* La grille des services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* L'effet Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* Pour Safari */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .glass-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .glass-card p {
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .glass-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CRYPT Solutions</h1>
+        <p>L'innovation par la transparence et la performance.</p>
+    </header>
+
+    <section class="services-grid">
+        <div class="glass-card">
+            <h2>Création de Sites Web</h2>
+            <p>Des interfaces vitrines et e-commerce sur-mesure. Nous développons des architectures web modernes, optimisées et déployées sur des serveurs rapides.</p>
+            <button class="glass-btn">Découvrir</button>
+        </div>
+        
+        <div class="glass-card">
+            <h2>Llink App</h2>
+            <p>Notre application phare de traduction avec modes online et offline. Pensée pour briser les barrières linguistiques avec un système d'abonnement abordable.</p>
+            <button class="glass-btn">Explorer Llink</button>
+        </div>
+
+        <div class="glass-card">
+            <h2>ClassNet</h2>
+            <p>Automatisation complète pour les écoles. Génération de bulletins PDF, calcul des points et des places pour faciliter le travail des enseignants.</p>
+            <button class="glass-btn">Voir la démo</button>
+        </div>
+    </section>
+
+</body>
+</html>
