@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRYPT | Profils</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* La grille Bento */
+        .bento-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .bento-item {
+            background-color: #ffffff;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .bento-item:hover {
+            transform: scale(1.02);
+        }
+
+        /* Spécificités de la grille */
+        .item-intro {
+            grid-column: span 2;
+            grid-row: span 2;
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .item-skills {
+            grid-column: span 2;
+        }
+
+        .item-tools {
+            grid-column: span 2;
+        }
+
+        .item-project {
+            grid-column: span 4;
+            background-color: #e3f2fd;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .item-intro h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #f1f3f4;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin: 5px 5px 0 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bento-container">
+        
+        <div class="bento-item item-intro">
+            <h1>KL Gaby et Baleke Mushama</h1>
+            <p>Développeurs Full-Stack & Fondateur de CRYPT. Passionné par l'automatisation, la création d'architectures web robustes et la résolution de problèmes complexes.</p>
+        </div>
+
+        <div class="bento-item item-skills">
+            <h2>Stack Technique</h2>
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript (ES6+)</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3 / Grid / Flexbox</span>
+        </div>
+
+        <div class="bento-item item-tools">
+            <h2>Écosystème & Déploiement</h2>
+            <span class="tag">GitHub</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">Render</span>
+            <span class="tag">Firebase Auth</span>
+        </div>
+
+        <div class="bento-item">
+            <h2>Approche</h2>
+            <p>Logique, efficacité, et design minimaliste ultra-pro.</p>
+        </div>
+
+        <div class="bento-item">
+            <h2>Objectif 2026</h2>
+            <p>Lancement officiel de 3 produits SaaS majeurs.</p>
+        </div>
+
+        <div class="bento-item item-project">
+            <h2>Projets en cours</h2>
+            <p><strong>Llink :</strong> Application de traduction.<br>
+            <strong>ClassNet :</strong> Gestion automatisée pour les écoles.<br>
+            <strong>SokoMaster :</strong> Logiciel de gestion de stock pour commerçants.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
