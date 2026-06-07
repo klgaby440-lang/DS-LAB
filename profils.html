@@ -84,6 +84,68 @@
             margin: 5px 5px 0 0;
             color: #333;
         }
+
+        @media (max-width: 600px) {
+            span {
+                display: flex;
+            }
+
+            .item-skills, .item-tools {
+                grid-column: span 1;
+        }
+        .bento-container {
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+            }
+            .item-project {
+            background-color: #e3f2fd;
+            }
+        }
+
+        /* ==========================================================================
+   PATCH RESPONSIVE UNITAIRE - À AJOUTER TOUT EN BAS DE TON STYLE EXISTANT
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Dissolution de la division d'écran principale gauche/droite */
+    body, .main-layout, .profile-container {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 15px !important;
+    }
+
+    /* Réalignement des sections majeures en pleine largeur */
+    .left-panel, .right-panel, .sidebar-profile, .content-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    /* RECONFIGURATION DU BENTO GRID : Passage forcé à une seule colonne */
+    .bento-container, .grid-bento {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    /* Neutralisation des fusions de cellules (grid-span) pour éviter les déformations */
+    .bento-item, .item-main, .item-skills, .item-tools, .item-project {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        width: 100% !important;
+        padding: 20px !important;
+    }
+
+    /* Gestion des tags techniques pour qu'ils reviennent à la ligne proprement */
+    .tag-container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+}
+        
     </style>
 </head>
 <body>
