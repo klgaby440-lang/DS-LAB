@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | DS-LAB</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 320'><rect width='360' height='320' fill='%230D0E12' rx='40'/><g transform='translate(-110, -10)'><path d='M 195 280 C 180 300 215 305 230 275 L 390 110 C 435 60 475 35 450 25 C 420 30 375 70 197 278' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round' stroke-linejoin='round'/><path d='M 130 130 L 470 130' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round'/><path d='M 230 130 L 230 280' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round'/><path d='M 350 130 L 350 270 Q 350 285 365 285' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round'/><circle cx='245' cy='260' r='22' fill='%232e3030'/></g></svg>">
+    <title>Contact | CRYPT</title>
     <style>
         * {
             margin: 0;
@@ -12,44 +13,53 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        /* Couleur de fond unique pour le Neumorphism */
         body {
             background-color: #e0e5ec;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
         .neu-form-container {
-            width: 400px;
+            width: 100%;
+            max-width: 450px;
             padding: 40px;
             border-radius: 30px;
-            /* Ombre externe pour faire ressortir le bloc */
-            box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+            box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgba(255,255,255,0.5);
         }
 
         .neu-form-container h2 {
             text-align: center;
-            color: #4a5568;
-            margin-bottom: 30px;
+            color: #2d3748;
+            margin-bottom: 10px;
             font-size: 2rem;
             letter-spacing: 1px;
+            font-weight: 800;
+        }
+
+        .neu-form-container p {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
         }
 
         .input-group {
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
 
         .input-group label {
             display: block;
-            margin-bottom: 10px;
-            color: #718096;
-            font-weight: bold;
-            padding-left: 5px;
+            margin-bottom: 8px;
+            color: #4a5568;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Les champs de saisie creusés dans la matière */
         .neu-input {
             width: 100%;
             padding: 15px;
@@ -58,58 +68,70 @@
             background-color: #e0e5ec;
             border-radius: 15px;
             font-size: 1rem;
-            color: #4a5568;
-            /* Ombre interne pour l'effet de creux */
+            color: #2d3748;
             box-shadow: inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8);
+            transition: box-shadow 0.2s ease;
         }
 
-        /* Le bouton en relief */
+        .neu-input:focus {
+            box-shadow: inset 3px 3px 6px 0 rgba(163,177,198, 0.9), inset -3px -3px 6px 0 rgba(255,255,255, 0.9);
+        }
+
         .neu-button {
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             border: none;
             outline: none;
             background-color: #e0e5ec;
             border-radius: 15px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            color: #4a5568;
+            color: #2d3748;
             cursor: pointer;
             transition: all 0.2s ease-in-out;
-            /* Ombre externe pour l'effet bouton surélevé */
             box-shadow: 6px 6px 10px 0 rgba(163,177,198, 0.7), -6px -6px 10px 0 rgba(255,255,255, 0.8);
+            margin-top: 10px;
         }
 
-        /* Quand on clique sur le bouton, il s'enfonce */
         .neu-button:active {
             box-shadow: inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8);
-            color: #2b6cb0;
+            color: #3182ce;
         }
     </style>
 </head>
 <body>
 
     <div class="neu-form-container">
-        <h2>CONTACTER DS-LAB</h2>
+        <h2>CONTACTER CRYPT</h2>
+        <p>Logiciels • Sites Web • Vidéos Pro • IA</p>
+        
         <form action="#" method="POST">
-            
             <div class="input-group">
-                <label for="name">Nom du client ou entreprise</label>
-                <input type="text" id="name" class="neu-input" placeholder="Ex: Jean Dupont">
+                <label for="name">Nom complet ou Entreprise</label>
+                <input type="text" id="name" class="neu-input" required placeholder="Ex: Professeur Gédéon / Établissement">
             </div>
 
             <div class="input-group">
                 <label for="email">Adresse E-mail</label>
-                <input type="email" id="email" class="neu-input" placeholder="contact@email.com">
+                <input type="email" id="email" class="neu-input" required placeholder="contact@domaine.com">
             </div>
 
             <div class="input-group">
-                <label for="message">Besoin technique</label>
-                <textarea id="message" class="neu-input" rows="4" placeholder="Description de votre projet web ou logiciel..."></textarea>
+                <label for="service">Service concerné</label>
+                <select id="service" class="neu-input" style="cursor: pointer;">
+                    <option value="web-video">CRYPT D&V (Site Web / Vidéo Pro)</option>
+                    <option value="classnet">ClassNet (Gestion scolaire)</option>
+                    <option value="sokomaster">SokoMaster (Gestion de stock)</option>
+                    <option value="llink">Llink (Integration IA)</option>
+                </select>
             </div>
 
-            <button type="submit" class="neu-button">Envoyer la requête</button>
+            <div class="input-group">
+                <label for="message">Description du projet</label>
+                <textarea id="message" class="neu-input" rows="4" required placeholder="Expliquez vos besoins techniques..."></textarea>
+            </div>
 
+            <button type="submit" class="neu-button">Envoyer le message ✉️</button>
         </form>
     </div>
 
