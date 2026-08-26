@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRYPT | Profils</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 320'><rect width='360' height='320' fill='%230D0E12' rx='40'/><g transform='translate(-110, -10)'><path d='M 195 280 C 180 300 215 305 230 275 L 390 110 C 435 60 475 35 450 25 C 420 30 375 70 197 278' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round' stroke-linejoin='round'/><path d='M 130 130 L 470 130' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round'/><path d='M 230 130 L 230 280' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round'/><path d='M 350 130 L 350 270 Q 350 285 365 285' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round'/><circle cx='245' cy='260' r='22' fill='%232e3030'/></g></svg>">
+    <title>Profils | CRYPT</title>
     <style>
         * {
             margin: 0;
@@ -21,11 +22,9 @@
             padding: 20px;
         }
 
-        /* La grille Bento */
         .bento-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: auto;
             gap: 20px;
             max-width: 1000px;
             width: 100%;
@@ -43,11 +42,10 @@
             transform: scale(1.02);
         }
 
-        /* Spécificités de la grille */
         .item-intro {
             grid-column: span 2;
             grid-row: span 2;
-            background-color: #000000;
+            background-color: #0d0e12;
             color: #ffffff;
         }
 
@@ -65,13 +63,19 @@
         }
 
         h2 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+            color: #1a1a1a;
+        }
+
+        .item-intro h2 {
+            color: #ffffff;
         }
 
         .item-intro h1 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             margin-bottom: 15px;
+            line-height: 1.2;
         }
 
         .tag {
@@ -79,73 +83,49 @@
             padding: 8px 15px;
             background-color: #f1f3f4;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: bold;
             margin: 5px 5px 0 0;
             color: #333;
         }
 
-        @media (max-width: 600px) {
-            span {
-                display: flex;
-            }
-
-            .item-skills, .item-tools {
-                grid-column: span 1;
-        }
-        .bento-container {
-            gap: 20px;
-            max-width: 1000px;
-            width: 100%;
-            }
-            .item-project {
-            background-color: #e3f2fd;
-            }
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
         }
 
-        /* ==========================================================================
-   PATCH RESPONSIVE UNITAIRE - À AJOUTER TOUT EN BAS DE TON STYLE EXISTANT
-   ========================================================================== */
-@media (max-width: 768px) {
-    /* Dissolution de la division d'écran principale gauche/droite */
-    body, .main-layout, .profile-container {
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 15px !important;
-    }
+        .project-card {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #bbdefb;
+        }
 
-    /* Réalignement des sections majeures en pleine largeur */
-    .left-panel, .right-panel, .sidebar-profile, .content-panel {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        min-height: auto !important;
-    }
+        .project-card strong {
+            color: #0d47a1;
+            display: block;
+            margin-bottom: 5px;
+        }
 
-    /* RECONFIGURATION DU BENTO GRID : Passage forcé à une seule colonne */
-    .bento-container, .grid-bento {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-        width: 100% !important;
-    }
+        @media (max-width: 768px) {
+            body {
+                padding: 15px !important;
+            }
 
-    /* Neutralisation des fusions de cellules (grid-span) pour éviter les déformations */
-    .bento-item, .item-main, .item-skills, .item-tools, .item-project {
-        grid-column: auto !important;
-        grid-row: auto !important;
-        width: 100% !important;
-        padding: 20px !important;
-    }
+            .bento-container {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 15px !important;
+                width: 100% !important;
+            }
 
-    /* Gestion des tags techniques pour qu'ils reviennent à la ligne proprement */
-    .tag-container {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 8px !important;
-    }
-}
-        
+            .bento-item {
+                width: 100% !important;
+                padding: 20px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -153,16 +133,16 @@
     <div class="bento-container">
         
         <div class="bento-item item-intro">
-            <h1>KL Gaby et Baleke Mushama</h1>
-            <p>Développeurs Full-Stack & Fondateur de CRYPT. Passionné par l'automatisation, la création d'architectures web robustes et la résolution de problèmes complexes.</p>
+            <h1>KL Gaby & Baleke Mushama</h1>
+            <p>Fondateurs de CRYPT (Core Resolution Yield Platform Technology). Passionnés par l'architecture logicielle, les intelligences artificielles et le développement de solutions à fort impact social et économique.</p>
         </div>
 
         <div class="bento-item item-skills">
             <h2>Stack Technique</h2>
             <span class="tag">Python</span>
             <span class="tag">JavaScript (ES6+)</span>
-            <span class="tag">HTML5</span>
-            <span class="tag">CSS3 / Grid / Flexbox</span>
+            <span class="tag">HTML5 / CSS3</span>
+            <span class="tag">AI / Machine Learning</span>
         </div>
 
         <div class="bento-item item-tools">
@@ -171,23 +151,39 @@
             <span class="tag">Vercel</span>
             <span class="tag">Render</span>
             <span class="tag">Firebase Auth</span>
+            <span class="tag">Hugging Face</span>
         </div>
 
         <div class="bento-item">
-            <h2>Approche</h2>
-            <p>Logique, efficacité, et design minimaliste ultra-pro.</p>
+            <h2>Vision CRYPT</h2>
+            <p>Résoudre des problèmes complexes par le code avec une approche élégante et pragmatique.</p>
         </div>
 
         <div class="bento-item">
             <h2>Objectif 2026</h2>
-            <p>Lancement officiel de 3 produits SaaS majeurs.</p>
+            <p>Déploiement à grande échelle de nos 3 SaaS phares : Llink, ClassNet et SokoMaster.</p>
         </div>
 
         <div class="bento-item item-project">
-            <h2>Projets en cours</h2>
-            <p><strong>Llink :</strong> Application de traduction.<br>
-            <strong>ClassNet :</strong> Gestion automatisée pour les écoles.<br>
-            <strong>SokoMaster :</strong> Logiciel de gestion de stock pour commerçants.</p>
+            <h2>Écosystème de Projets en cours</h2>
+            <div class="project-list">
+                <div class="project-card">
+                    <strong>Llink (Luga Link)</strong>
+                    <p style="font-size: 0.85rem; color: #555;">Intelligence artificielle multilingue avec support streaming online & offline.</p>
+                </div>
+                <div class="project-card">
+                    <strong>ClassNet</strong>
+                    <p style="font-size: 0.85rem; color: #555;">Logiciel complet de calcul automatique des points et d'édition de bulletins scolaires.</p>
+                </div>
+                <div class="project-card">
+                    <strong>SokoMaster</strong>
+                    <p style="font-size: 0.85rem; color: #555;">Logiciel de gestion de stock moderne pour commerçants et boutiques.</p>
+                </div>
+                <div class="project-card">
+                    <strong>CRYPT D & V</strong>
+                    <p style="font-size: 0.85rem; color: #555;">Création web sur-mesure et vidéos publicitaires de niveau professionnel.</p>
+                </div>
+            </div>
         </div>
 
     </div>
