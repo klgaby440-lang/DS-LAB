@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Analyse | DS-LAB</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 320'><rect width='360' height='320' fill='%230D0E12' rx='40'/><g transform='translate(-110, -10)'><path d='M 195 280 C 180 300 215 305 230 275 L 390 110 C 435 60 475 35 450 25 C 420 30 375 70 197 278' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round' stroke-linejoin='round'/><path d='M 130 130 L 470 130' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round'/><path d='M 230 130 L 230 280' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round'/><path d='M 350 130 L 350 270 Q 350 285 365 285' fill='none' stroke='%23FFFFFF' stroke-width='14' stroke-linecap='round'/><circle cx='245' cy='260' r='22' fill='%232e3030'/></g></svg>">
+    <title>Dashboard Analyse | CRYPT</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Courier New", Courier, monospace; /* Style Terminal/Code */
+            font-family: "Courier New", Courier, monospace;
         }
 
         body {
@@ -19,9 +20,9 @@
             min-height: 100vh;
         }
 
-        /* Barre latérale (Sidebar) */
+        /* Sidebar */
         .sidebar {
-            width: 250px;
+            width: 260px;
             background-color: #0b132b;
             padding: 30px 20px;
             border-right: 2px solid #00f3ff;
@@ -32,6 +33,7 @@
             color: #00f3ff;
             text-shadow: 0 0 10px #00f3ff;
             margin-bottom: 40px;
+            font-size: 1.3rem;
         }
 
         .sidebar ul {
@@ -44,6 +46,7 @@
             font-weight: bold;
             letter-spacing: 1px;
             transition: color 0.3s, text-shadow 0.3s;
+            font-size: 0.95rem;
         }
 
         .sidebar ul li:hover {
@@ -51,7 +54,7 @@
             text-shadow: 0 0 10px #b026ff;
         }
 
-        /* Contenu principal */
+        /* Dashboard Main */
         .dashboard {
             flex-grow: 1;
             padding: 40px;
@@ -64,118 +67,111 @@
         .dashboard-header h1 {
             color: #b026ff;
             text-shadow: 0 0 15px #b026ff;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .dashboard-header p {
+            color: #8da2c0;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
         }
 
-        /* L'effet Néon */
+        /* Néon Boxes */
         .neon-box {
             background-color: #111a30;
             border: 1px solid #00f3ff;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3), inset 0 0 10px rgba(0, 243, 255, 0.1);
             text-align: center;
         }
 
-        .neon-box:nth-child(2) {
+        .neon-box.purple {
             border-color: #b026ff;
-            box-shadow: 0 0 10px rgba(176, 38, 255, 0.4), inset 0 0 10px rgba(176, 38, 255, 0.1);
+            box-shadow: 0 0 10px rgba(176, 38, 255, 0.3), inset 0 0 10px rgba(176, 38, 255, 0.1);
+        }
+
+        .neon-box.green {
+            border-color: #00ff88;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3), inset 0 0 10px rgba(0, 255, 136, 0.1);
         }
 
         .neon-box h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #8da2c0;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
         .neon-box .data {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: #00f3ff;
             text-shadow: 0 0 10px #00f3ff;
         }
 
-        .neon-box:nth-child(2) .data {
+        .neon-box.purple .data {
             color: #b026ff;
             text-shadow: 0 0 10px #b026ff;
         }
 
-        /* ==========================================================================
-   PATCH RESPONSIVE UNITAIRE - À AJOUTER TOUT EN BAS DE TON STYLE EXISTANT
-   ========================================================================== */
-@media (max-width: 768px) {
-    /* Le corps de l'application passe d'horizontal à vertical */
-    body {
-        flex-direction: column !important;
-    }
+        .neon-box.green .data {
+            color: #00ff88;
+            text-shadow: 0 0 10px #00ff88;
+        }
 
-    /* La sidebar migre tout en haut de l'écran du téléphone */
-    .sidebar {
-        width: 100% !important;
-        height: auto !important;
-        border-right: none !important;
-        border-bottom: 2px solid #00f3ff !important; /* Conserve ton identité néon */
-        padding: 20px !important;
-    }
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column !important;
+            }
 
-    /* Alignement horizontal compact des options du menu système */
-    .sidebar ul {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: space-around !important;
-        gap: 10px !important;
-    }
+            .sidebar {
+                width: 100% !important;
+                border-right: none !important;
+                border-bottom: 2px solid #00f3ff !important;
+                padding: 20px !important;
+            }
 
-    .sidebar ul li {
-        margin-bottom: 0 !important;
-        font-size: 0.85rem !important;
-    }
+            .sidebar ul {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: space-around !important;
+                gap: 10px !important;
+            }
 
-    /* Zone principale d'affichage des statistiques */
-    .dashboard, .main-panel {
-        width: 100% !important;
-        padding: 20px !important;
-    }
+            .dashboard {
+                width: 100% !important;
+                padding: 20px !important;
+            }
 
-    /* Ta grille de données passe de 3 colonnes à 1 colonne verticale */
-    .stats-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
-        width: 100% !important;
-    }
-
-    .neon-box {
-        width: 100% !important;
-    }
-}
-
-
+            .stats-grid {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+        }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <h2>DS-LAB // SYS</h2>
+        <h2>CRYPT // SYSTEM</h2>
         <ul>
             <li>> Vue d'ensemble</li>
-            <li>> Flux de Données</li>
-            <li>> Synapses Actives</li>
-            <li>> Sécurité Serveur</li>
+            <li>> Flux Llink</li>
+            <li>> Nœuds ClassNet</li>
+            <li>> Stocks SokoMaster</li>
         </ul>
     </aside>
 
     <main class="dashboard">
         <div class="dashboard-header">
-            <h1>MONITORING SYSTÈME</h1>
-            <p>Analyse des performances en temps réel.</p>
+            <h1>MONITORING PRODUITS CRYPT</h1>
+            <p>Supervision des performances applicatives en temps réel.</p>
         </div>
 
         <div class="stats-grid">
@@ -184,14 +180,14 @@
                 <div class="data">1,024</div>
             </div>
             
-            <div class="neon-box">
-                <h3>Vitesse de traitement</h3>
-                <div class="data">12ms</div>
+            <div class="neon-box purple">
+                <h3>Écoles sur ClassNet</h3>
+                <div class="data">18</div>
             </div>
 
-            <div class="neon-box">
-                <h3>Requêtes API</h3>
-                <div class="data">99.9%</div>
+            <div class="neon-box green">
+                <h3>Stocks SokoMaster</h3>
+                <div class="data">4,850</div>
             </div>
         </div>
     </main>
